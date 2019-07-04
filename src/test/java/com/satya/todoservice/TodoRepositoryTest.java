@@ -28,11 +28,11 @@ public class TodoRepositoryTest {
 
     @Before
     public void setup() {
-        Todo todo1 = Todo.builder().id(1L).description("First task").build();
-        Todo todo2 = Todo.builder().id(2L).description("First task").build();
-        Todo todo3 = Todo.builder().id(3L).description("First task").build();
-        Todo todo4 = Todo.builder().id(4L).description("First task").build();
-        Todo todo5 = Todo.builder().id(5L).description("First task").build();
+        Todo todo1 = Todo.builder().description("First task").build();
+        Todo todo2 = Todo.builder().description("First task").build();
+        Todo todo3 = Todo.builder().description("First task").build();
+        Todo todo4 = Todo.builder().description("First task").build();
+        Todo todo5 = Todo.builder().description("First task").build();
 
         todos = new Todo[]{todo1, todo2, todo3, todo4, todo5};
 
@@ -49,6 +49,6 @@ public class TodoRepositoryTest {
         List<Todo> actualTodos = todoRepository.findAll();
 
         Assert.assertEquals(5, actualTodos.size());
-        Assert.assertEquals(todos, actualTodos.toArray(new Todo[0]));
+        Assert.assertEquals(todos[4].getDescription(), actualTodos.get(4).getDescription());
     }
 }
